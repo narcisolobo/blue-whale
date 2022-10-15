@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/magazines">MAGAZINES</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/magazines">All Magazines</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/magazines/new">Add a Magazine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/users/account">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/users/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="bg-primary py-1 mb-3">
+  <div class="container">
+    <span class="h6 text-light mb-0">Welcome, {{ user.first_name }} {{ user.last_name }}</span>
+  </div>
+</div>

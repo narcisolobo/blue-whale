@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+  <h5 class="card-header">All Magazines</h5>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Added By</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for magazine in magazines %}
+          <tr>
+            <td>
+              <a href="/magazines/{{ magazine.id }}">{{ magazine.title }}</a>
+            </td>
+            <td>{{ magazine.creator.first_name }} {{ magazine.creator.last_name }}</td>
+            <td>
+              <form action="/subscribers" method="post">
+                <input type="hidden" name="user_id" value="{{ session.user_id }}">
+                <input type="hidden" name="magazine_id" value="{{ magazine.id }}">
+                <input
+                  type="submit"
+                  value="Subscribe"
+                  class="btn btn-sm btn-primary
+                  {{ 'disabled' if user in magazine.subscribers else '' }}"
+                />
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

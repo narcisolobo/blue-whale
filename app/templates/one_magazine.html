@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+  <h5 class="card-header">{{ magazine.title }}</h5>
+  <div class="card-body">
+    <p>
+      <strong>Added By:</strong>
+      {{ magazine.creator.first_name }} {{ magazine.creator.last_name }}
+    </p>
+    <p>
+      <strong>Description:</strong>
+      {{ magazine.description }}
+    </p>
+    <p>
+      <strong>Subscribers:</strong>
+      <ul>
+        {% for subscriber in magazine.subscribers %}
+          <li>
+            {{ subscriber.first_name }} {{ subscriber.last_name }}
+          </li>
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+</div>
+{% endblock content %}
